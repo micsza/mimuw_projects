@@ -1,0 +1,12 @@
+int a = 1;
+
+int << foo (int a) {
+    int x = a / 2 - 1;
+
+    print(10 * x); // 40
+
+    return 0;
+}
+
+// should print "40": global 'a' gets overriden by local arg
+int res = foo(10);

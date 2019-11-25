@@ -1,0 +1,41 @@
+--- Na 15 punktów
+    T 1. Co najmniej trzy typy wartości: int, bool i string.
+    T 2. Literały, arytmetyka, porównania.
+    T 3. Zmienne, operacja przypisania
+    T 4. Jawne wypisywanie wartości na wyjście (instrukcja lub wbudowana
+         procedura print).
+    T 5. while, if (z else i bez, może być też składnia if _ elif _ else _ endif).
+    T 6. Funkcje lub procedury (bez zagnieżdżania), rekurencja.
+      7. Jedna rzecz z poniższej listy lub coś o porównywalnej trudności:
+        T a) co najmniej dwa sposoby przekazywania parametrów (przez zmienną /
+             przez wartość / in/out),
+        N b) zmienne „read-only” i użycie ich np. w implementacji pętli for w
+             stylu Pascala
+
+--- Na 20 punktów
+    T 8. Przesłanianie identyfikatorów ze statycznym ich wiązaniem (zmienne
+         lokalne i globalne lub zagnieżdżone procedury/funkcje).
+    T 9. Obsługa błędów wykonania, np. dzielenie przez zero (może być elegancki
+         komunikat i zatrzymanie interpretera).
+    T 10. Funkcje przyjmujące i zwracające wartość dowolnych obsługiwanych typów
+          (tzn. nie tylko procedury; za to mogą być tylko funkcje – jak w języku  C).
+
+--- Do 30 punktów wg cennika...
+    T 4pkt: statyczne typowanie (tj. zawsze terminująca faza kontroli typów przed
+            rozpoczęciem wykonania programu)
+    T 2pkt: dowolnie zagnieżdżone definicje funkcji / procedur z zachowaniem
+            poprawności statycznego wiązania identyfikatorów (jak w Pascalu)
+    T 1pkt: rekordy
+    T 1pkt: tablice indeksowane int lub coś à la listy,
+   *T 2pkt: dowolnie zagnieżdżone krotki z przypisaniem jak w Pythonie (składnia
+    wedle uznania),
+    N 1pkt: operacje przerywające pętlę while - break i continue
+      4pkt:
+        T funkcje jako parametry,
+        N zwracanie funkcji w wyniku,
+        N domknięcia à la JavaScript,
+        N funkcje anonimowe
+    N 3pkt: procedury generujące i składnia do ich używania
+
+--- Uwagi:
+*) krotek nie ma ale są mapy

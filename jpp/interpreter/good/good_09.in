@@ -1,0 +1,62 @@
+record {
+    string name;
+    int age;
+    map<string, int> skills;
+} Person;
+
+record Person krzysio;
+
+map<string, int> skile;
+
+int << init() {
+    krzysio.name = "Krzysio Kolumb";
+    krzysio.age = 33;
+    krzysio.skills[["greka"]] = 4;
+    krzysio.skills[["lacina"]] = 5;
+    krzysio.skills[["nawigacja"]] = 6;
+
+
+    skile[["miecz"]] = 2;
+    skile[["pioro"]] = 6;
+
+    return 0;
+}
+
+int << foo(record Person person) {
+    person.age = 101;
+    map<string, int> m;
+    m[["szpada"]] = 5;
+    m[["szpadel"]] = 1;
+    person.skills = m;
+
+    return 0;
+}
+
+int << bar(record Person person, map<string, int> m) {
+    m[["pacierz"]] = 4;
+    person.skills = m;
+
+    return 0;
+}
+
+int << printMe() {
+    print(krzysio);
+
+    return 0;
+}
+
+
+int res0 = init();
+
+// "record : { age = 33,  name = Krzysio Kolumb,  skills = map : { (greka -> 4)  (lacina -> 5)  (nawigacja -> 6) }, }"
+int res0_ = printMe();
+
+int res1 = foo(krzysio);
+
+//record : { age = 101,  name = Krzysio Kolumb,  skills = map : { (szpada -> 5)  (szpadel -> 1) }, }"
+int res1_ = printMe();
+
+int res2 = bar(krzysio, skile);
+
+// "record : { age = 101,  name = Krzysio Kolumb,  skills = map : { (miecz -> 2)  (pacierz -> 4)  (pioro -> 6) }, }"
+int res2_ = printMe();

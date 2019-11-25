@@ -1,0 +1,11 @@
+// accessing unallocated object
+array array int 10 5 a;
+
+int << foo() {
+    a[0][0] = 6;
+
+    //print a[5];
+    return 0;
+}
+
+int res2 = foo();

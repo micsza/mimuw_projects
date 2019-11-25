@@ -1,0 +1,26 @@
+// some more complicated recursive calls + if/else
+
+int a = 1;
+int << fib(int m) {
+    int ret;
+
+    if (m == 0)
+        ret = 0;
+    else
+        if (m == 1)
+            ret = 1;
+        else
+            ret = fib(m-1) + fib(m-2);
+
+    return ret;
+}
+
+int << printFib(int m) {
+    int f = fib(m);
+    print(f);
+
+    return 0;
+}
+
+// "13"
+int res = printFib(7);

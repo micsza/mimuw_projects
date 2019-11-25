@@ -1,0 +1,19 @@
+int a = 1;
+
+int x, y, z;
+
+int << foo(int b) {
+    x = b++;
+    y = ++a;
+    z = y--;
+
+    print(a); // 2
+    print(b); // 1
+    print(x); // 0
+    print(y); // 1
+    print(z); // 2
+
+    return 0;
+}
+
+int res = foo(0);

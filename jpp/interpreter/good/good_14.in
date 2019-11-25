@@ -1,0 +1,30 @@
+int a = 1;
+
+int << bar(int z, int x) {
+    z = x;
+
+    return 0;
+}
+int << foo(var int z, int x) {
+    z = x;
+
+    return 0;
+}
+
+int << printMe() {
+    print(a);
+
+    return 0;
+}
+
+// global variable 'a' is passed by value to 'bar'
+int res1 = bar(a, 2);
+
+// prints "1" :  no change after 'bar' call
+int res1_ = printMe();
+
+// 'a' is passed by variable to 'foo'
+int res2 = foo(a, 3);
+
+// prints "3": 'foo' call modified global 'a'
+int res2_ = printMe();

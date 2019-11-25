@@ -1,0 +1,44 @@
+array array int 5 10 aa;
+array int 5 b;
+
+int << init() {
+    array int 5 a;
+    a[0] = 0;
+    a[1] = 2;
+    a[2] = 4;
+
+    b[0] = 11;
+    b[1] = 13;
+
+    aa[4] = a;
+
+    return 0;
+}
+
+int << printMe() {
+    print(aa);
+
+    return 0;
+}
+
+int << mod(array array int 5 10 A, array int 5 c) {
+    c[2] = 15;
+    A[2] = c;
+    A[3] = b;
+    A[4][1] = 666;
+
+    return 0;
+}
+
+int res0 = init();
+
+//"array[10] : < (4, array[5] : < (0, 0)  (1, 2)  (2, 4) >) >"
+int res0_ = printMe();
+
+int res1 = mod(aa, b);
+
+// "array[10] : <
+// (2, array[5] : < (0, 11)  (1, 13)  (2, 15) >)
+// (3, array[5] : < (0, 11)  (1, 13)  (2, 15) >)
+// (4, array[5] : < (0, 0)  (1, 666)  (2, 4) >) >"
+int res1_ = printMe();

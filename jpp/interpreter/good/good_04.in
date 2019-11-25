@@ -1,0 +1,38 @@
+map<int, int> m;
+
+int << set() {
+    m[[0]] = 10;
+    m[[1]] = 20;
+    print(m);
+    return 0;
+}
+
+int << foo(int z) {
+    m[[0]] = z;
+    m[[2]] = 2 * z;
+    print(m);
+    return 0;
+}
+
+int << bar(map<int, int> m2) {
+    m2[[0]] = 3;
+    print(m2);
+    return 0;
+}
+
+int << printMe() {
+    print(m);
+    return 0;
+}
+
+// "map : { (0 -> 10)  (1 -> 20) }"
+int res0 = set();
+
+// "map : { (0 -> 2)  (1 -> 20)  (2 -> 4) }"
+int res1 = foo(2);
+
+// "map : { (0 -> 3)  (1 -> 20)  (2 -> 4) }"
+int res2 = bar(m);
+
+// "map : { (0 -> 3)  (1 -> 20)  (2 -> 4) }" (maps are passed by reference)
+int res3 = printMe();

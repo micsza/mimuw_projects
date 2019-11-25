@@ -1,0 +1,143 @@
+-- BNFC grammar for 'Blah' language for MIMUW JPP 2018/19 big assignment
+-- Author: Michał Szafraniuk
+-- Date: April 2019
+
+-- programs -------------------------------------
+entrypoints Program ;
+Prog.           Program ::= [ Def ] ;
+terminator      Def "" ;
+
+
+-- definitions ----------------------------------
+DVar.           Def ::= VarDecl ;
+DFun.           Def ::= FunDef;
+
+
+-- functions definitions ------------------------
+DFunAll.        FunDef ::= FType "<<" Id "(" [ Arg ] ")" FunBody;
+DFunBody.       FunBody ::= "{" [ Stmt ] RetStmt "}" ;
+
+
+-- function statements --------------------------
+StmtVarDec.     Stmt ::= VarDecl ;
+StmtFunDef.     Stmt ::= FunDef ;
+--FStmtS.         FStmt ::= Stmt ;
+--terminator      FStmt "" ;
+
+-- pure statements ------------------------------------
+SExpr.          Stmt ::= Expr ";" ;
+SEmpty.         Stmt ::= ";" ;
+SBlock.         Stmt ::= "{" [Stmt] "}" ;
+SWhile.         Stmt ::= "while" "(" Expr ")" Stmt;
+StmtIfelse.     Stmt ::= "if" "(" Expr ")" Stmt "else" Stmt ;
+StmtIf.         Stmt ::= "if" "(" Expr ")" Stmt;
+StmtPrint.      Stmt ::= "print" Expr ";" ;
+terminator      Stmt "" ;   
+
+-- return statement -----------------------------------
+StmtRetExpr.    RetStmt ::= "return" Expr ";" ;
+
+
+-- block statements ------------------------------
+--BStmtPure.      BStmt ::= Stmt ;
+--BStmtDecl.      BStmt ::= VarDecl ;
+--BStmtFun.       BStmt ::= FunDef ;
+--terminator      BStmt "" ;
+
+
+-- function arguments ------------------------------------
+ArgVal.         Arg ::= Type Id ;
+ArgFun.         Arg ::= FType "<<" Id "(" [FType] ")";
+ArgVar.         Arg ::= "var" Type Id ;
+ArgInout.       Arg ::= "inout" Type Id ;
+separator       Arg "," ;
+
+
+-- variable declarations ------------------------
+DVarSimple.     VarDecl ::= Type Id ";" ;
+DVarList.       VarDecl ::= Type Id "," [Id] ";" ;
+DVarExpr.       VarDecl ::= Type Id "=" Expr ";" ;
+DVarRecord.     VarDecl ::= "record" "{" [VarDecl] "}" Id ";" ;
+separator       VarDecl "" ;
+
+
+-- access ---------------------------------------
+AccEmpty.       Acc ::= ;
+AccArray.       Acc ::= "[" Expr "]" Acc ;
+AccMap.         Acc ::= "[[" Expr "]]" Acc ;
+AccApp.         Acc ::= "(" [Expr] ")" Acc;
+AccRec.         Acc ::= "." Id Acc ;
+
+-- AArray.      Acc ::= "[" Expr "]" ;
+-- ARec.           Acc ::= "." Id ;
+-- AApp.           Acc ::= "(" [Expr] ")" ;
+-- AMap.         Acc ::= "[[" Expr "]]" ;
+
+
+-- expressions ----------------------------------
+EString.        Expr15 ::= String ;
+EInt.           Expr15 ::= Integer ;
+ETrue.          Expr15 ::= "true" ;
+EFalse.         Expr15 ::= "false" ;
+
+--EId.            Expr15 ::= Id ;
+EAcc.           Expr15 ::= Id Acc ;
+
+EPIncr.         Expr14 ::= Expr15 "++" ;
+EPDecr.         Expr14 ::= Expr15 "--" ;
+EIncr.          Expr13 ::= "++" Expr14 ;
+EDecr.          Expr13 ::= "--" Expr14 ;
+ETimes.         Expr12 ::= Expr12 "*" Expr13 ;
+EDiv.           Expr12 ::= Expr12 "/" Expr13 ;
+EPlus.          Expr11 ::= Expr11 "+" Expr12 ;
+EMinus.         Expr11 ::= Expr11 "-" Expr12 ;
+ELt.            Expr9 ::= Expr9 "<" Expr10 ;
+EGt.            Expr9 ::= Expr9 ">" Expr10 ;
+ELtEq.          Expr9 ::= Expr9 "<=" Expr10 ;
+EGtEq.          Expr9 ::= Expr9 ">=" Expr10 ;
+EEq.            Expr8 ::= Expr8 "==" Expr9 ;
+ENEq.           Expr8 ::= Expr8 "!=" Expr9 ;
+
+EAnd.           Expr4 ::= Expr4 "&&" Expr5 ;
+EOr.            Expr3 ::= Expr3 "||" Expr4 ;
+
+ENot.           Expr2 ::= "not" Expr3 ;
+EAss.           Expr2 ::= Expr15 Ass Expr2 ;
+
+coercions       Expr 15 ;
+separator       Expr "," ;
+
+
+-- assignment operators -------------------------
+AssPure.        Ass ::= "=" ;
+AssPlus.        Ass ::= "+=" ;
+AssMinus.       Ass ::= "-=" ;
+AssTimes.       Ass ::= "*=" ;
+AssDiv.         Ass ::= "/=" ;
+
+
+-- identifiers ----------------------------------
+position token  Id (letter (letter | digit | '_')*) ;
+separator       Id "," ;
+
+
+-- primitive types ------------------------------
+TBool.          Type ::= "bool" ;
+TInt.           Type ::= "int" ;
+TString.        Type ::= "string" ;
+
+
+-- nonprimitive types ---------------------------
+TArray.         Type ::= "array" Type Integer ;
+TRecord.        Type ::= "record" Id ;
+TMap.           Type ::= "map" "<" Type "," Type ">" ;
+
+-- function  types ---------------------
+TFTypeT.        FType ::= Type ;
+TFTypeF.        FType ::= "fun" FType ;
+separator       FType "," ;
+
+
+-- comments -------------------------------------
+comment         "//" ;
+comment         "/*" "*/" ;

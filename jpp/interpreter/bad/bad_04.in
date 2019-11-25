@@ -1,0 +1,9 @@
+int << foo(int << f(int, bool), string s, bool b) {
+    return 0;
+}
+
+string << bar(int a, bool b) {
+    return "kota";
+}
+
+int res = foo(bar, "ala", true);

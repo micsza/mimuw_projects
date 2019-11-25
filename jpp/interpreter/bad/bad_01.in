@@ -1,0 +1,9 @@
+int z;
+int << foo(int b) {
+    int a;
+    int a;
+
+    return 0;
+}
+
+int res = foo(3);

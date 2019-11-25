@@ -1,0 +1,15 @@
+Interpreter składa się z czterech plików:
+* Main.hs - moduł główny
+* Lib.hs - biblioteka
+* Check.hs - moduł od kontroli typów
+* Eval.hs - moduł od ewaluacji
+
+Kompilacja:
+    make
+Uruchomienie:
+    ./Main <program>
+
+Uwagi:
+* zredukowałem liczbę konfliktów w gramatyce z 3 do 1 - został tylko ifelse/if
+* w stosunku do pierwotnej deklaracji: nie zdążyłem zaimplementować zwracania
+  funkcji przez funkcję 

@@ -1,0 +1,45 @@
+array int 5 a;
+map<int, string> m;
+
+int << init() {
+    int i = 0;
+    while (i < 5) {
+        a[i] = i * 2;
+        i++;
+    }
+
+    m[[0]] = "per";
+    m[[1]] = "aspera";
+    m[[2]] = "ad";
+    m[[3]] = "astra";
+
+    return 0;
+}
+
+int << foo(int i, int x, int j, string s) {
+    a[i] = x;
+    m[[j]] = s;
+
+    return 0;
+}
+
+int << printMe() {
+    print(a);
+    print(m);
+
+    return 0;
+}
+
+int res0 = init();
+
+// "array[5] : < (0, 0)  (1, 2)  (2, 4)  (3, 6)  (4, 8) >"
+// "map : { (0 -> per)  (1 -> aspera)  (2 -> ad)  (3 -> astra) }"
+int res0_ = printMe();
+
+// 'foo' updates non-primitve type (array)
+int res1 = foo(3, 7, 3, "opel astra");
+int res2 = foo(4, 16, 4, "vel opel kadett");
+
+// "array[5] : < (0, 0)  (1, 2)  (2, 4)  (3, 7)  (4, 16) >"
+// "map : { (0 -> per)  (1 -> aspera)  (2 -> ad)  (3 -> opel astra)  (4 -> vel opel kadett) }"
+int res1_ = printMe();

@@ -1,0 +1,26 @@
+int a = 1;
+
+int << foo(int x, int y) {
+    int << bar(int z) {
+        print(a);
+        a = z;
+        return 10;
+    }
+
+    int a = y;
+    int r = bar(x);
+    print(a);
+
+    return 20;
+}
+
+int << printMe() {
+    print(a);
+    return 30;
+}
+
+// nested bar should print 1, foo print should output 2
+int res = foo(3,2);
+
+// should print 3
+int res_ = printMe();

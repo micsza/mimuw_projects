@@ -1,0 +1,38 @@
+array int 3 a;
+
+int << init() {
+    a[0] = 10;
+    a[1] = 11;
+    a[2] = 12;
+    return 0;
+}
+
+int << foo() {
+    int << bar() {
+        a[0] = 666;
+        return 0;
+    }
+
+    array int 3 a;
+    a[0] = 20;
+    a[1] = 30;
+    int res = bar();
+    print(a);
+
+    return 0;
+}
+
+int << printMe() {
+    print(a);
+    return 0;
+}
+
+int res0 = init();
+
+// should print "array[3] : < (0, 20)  (1, 30) >"
+// as local variable 'a' overrides global 'a'
+int res1 = foo();
+
+// should print "array[3] : < (0, 666)  (1, 11)  (2, 12) >"
+// if static bindings for bar work
+int res1_ = printMe();

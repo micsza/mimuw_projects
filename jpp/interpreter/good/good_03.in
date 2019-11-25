@@ -1,0 +1,46 @@
+array int 10 arr;
+
+int << set() {
+    arr[7] = 77;
+    arr[8] = 88;
+    arr[9] = 99;
+
+    print("set:");
+    print(arr);
+
+    return 0;
+}
+
+int << bar() {
+    arr[7]++;
+    print("bar");
+    print(arr);
+
+    return 0;
+}
+
+int << foo(array int 10 a) {
+    a[0] = 5;
+
+    print("foo a:");
+    print(a);
+    print("foo arr:");
+    print(arr);
+
+    return 0;
+}
+
+
+// should print "<(7,77), (8,88), (9,99)>"
+int res1 = set();
+
+ // should print "<(7,78), (8,88), (9,99)>"
+int res2 = bar();
+
+// should print "a : <(0,5), (7,78), (8,88), (9,99)>"
+// and "arr: array[10] : < (0, 5)  (7, 78)  (8, 88)  (9, 99) >"
+// as non-primitive objects are passed by reference
+int res3 = foo(arr);
+
+ // should print "array[10] : < (0, 5)  (7, 79)  (8, 88)  (9, 99) >"
+int res4 = bar();

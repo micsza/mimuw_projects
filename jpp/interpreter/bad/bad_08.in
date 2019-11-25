@@ -1,0 +1,10 @@
+map<int, int> m;
+
+int << foo(int x) {
+    m[[0]]++;
+    //m[[0]] = 18;
+    print m;
+    return x;
+}
+
+int res = foo(0);

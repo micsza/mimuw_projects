@@ -1,0 +1,5 @@
+int << foo(int a, string s, bool b) {
+    return 0;
+}
+
+int res = foo(1, "ala", "kota");

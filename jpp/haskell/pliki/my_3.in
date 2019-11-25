@@ -1,0 +1,8 @@
+1 1 moveto
+2 2 lineto
+3 3 lineto
+4 4 lineto
+closepath
+10 10 moveto
+20 20 lineto
+closepath

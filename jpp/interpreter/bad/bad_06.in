@@ -1,0 +1,9 @@
+// index out of bound error
+array int 7 a;
+
+int << foo(int x) {
+    a[7] = x;
+    return 0;
+}
+
+int res = foo(8);

@@ -1,0 +1,8 @@
+niebieski;30;40
+zielony;10;33
+bialy;12;19
+czarny;22;44
+czerwony;24;100
+bronzowy;19;43
+seledynowy;87;73
+truskawkowy;57;21

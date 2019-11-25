@@ -1,0 +1,19 @@
+int << fst(int a, int b) {
+    return a;
+}
+
+int << snd(int a, int b) {
+    return b;
+}
+
+int << bar(int << foo(int, int), int x, int y) {
+    int ret = foo(x, y);
+    print ret;
+    return 0;
+}
+
+// "3"
+int res1 = bar(fst, 3, 5);
+
+// "5"
+int res2 = bar(snd, 3, 5);

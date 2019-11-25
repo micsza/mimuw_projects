@@ -1,0 +1,5 @@
+OPI5533;zielony;czarny;+42.8;x0.3
+SATAN666;czarny;czarny;+66.6;x0.666
+OPI1234;zolty;zielony;+8.2;-5
+OPI5533;niebieski;zloty;-5;+5
+IPOzloty;zloty;srebrny;x0.4;x0.7
